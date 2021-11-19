@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx:stable
+    ports:
+      - 80:80
+    volumes:
+      - ./data.txt:/usr/share/nginx/html/index.html
