@@ -9,19 +9,19 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    ssh_session session;
+    ssh_channel channel;
+    ssh_key public_key;
+
+    int rc = 0;
+    int port = 22;
+    const char* user = "mobile";
+
+    char buffer[1024];
+    unsigned int nbytes;
+    FILE* file;
+
     while(1) {
-        ssh_session session;
-        ssh_channel channel;
-        ssh_key public_key;
-
-        int rc = 0;
-        int port = 22;
-        const char* user = "mobile";
-
-        char buffer[1024];
-        unsigned int nbytes;
-        FILE* file;
-
         session = ssh_new();
         if (session == NULL) {
             printf("Error starting session\n");
